@@ -1,97 +1,36 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
- p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
+*{
     box-sizing:border-box;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-body {
-    line-height: 1;
-}
-ol, ul {
-    list-style: none;
-}
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
 }
 
-/*  ------------------------------------------
-        End css reset
-    ------------------------------------------
-*/
-
 body {
-    padding: 15px;
+    -webkit-font-smoothing:antialiased;
+    margin:20px;
     font-family: 'Oswald', sans-serif;
     font-size: 12px;
     background-image: url(assets/img/cream_pixels.png);
-}
-h1 {
-    margin-top: 5px;
-    margin-bottom: 15px;
 }
 h1, h2, h3, h4, h5, h6 {
     font-weight: 800;
 }
 label {
     font-weight: bold;
+    color: #333;
 }
 button {
     font-family: 'Oswald', sans-serif;
-    margin: 4px;
+    margin: 12px;
     font-weight: bold;
+    font-size:12px;
     color: #fff;
     text-transform: uppercase;
     border-radius: 5px;
     /* 'Corner-radius' was listed in the requirements, I assumed a typo and assumed you meant border-radius. */
-
     border: none;
     cursor: pointer;
     background-color: rgba(68, 68, 68, 1);
     transition: all 0.2s ease 0s;
 }
-.row:after,
-.group:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-label {
-    color: #333;
-}
+
 button:focus {
     outline: none;
 }
@@ -108,44 +47,74 @@ button.active {
 button:disabled {
     opacity: 0.3;
 }
+
+#tableWrapper {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
 table,
 th,
 td {
     border: 1px solid #efefef;
-    border-collapse: collapse;
+    vertical-align:middle;
 }
 table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-spacing: 0;
     height: 500px;
 }
 table th {
     padding: 9px;
-    font-weight: 900;
     background: #333 linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
     color: white;
+    min-width:100px;
     border-color: #555;
     -webkit-user-select: none;
     cursor: pointer;
 }
 table tbody tr {
-    background-color: #fff;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.02));
+    background:#fff linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.02));
 }
 table tbody tr:hover {
     background-image: linear-gradient(rgba(255, 200, 200, 0.3), rgba(255, 200, 200, 0.2));
     cursor: pointer;
 }
 table tbody tr td {
-    vertical-align:middle;
     font-weight: 300;
+    padding:6px;
 }
-table td {
-    padding: 6px;
+table tbody tr td.email {
+    width: 99%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    word-break: break-all;
 }
 table tbody tr.active {
-    background-image: linear-gradient(rgba(255, 200, 200, 0.5), rgba(255, 200, 200, 0.3));
+    background-image:linear-gradient(rgba(255, 200, 200, 0.15), rgba(255, 200, 200, 0.4))
 }
+table tbody tr.active td{
+    font-weight:normal;
+}
+
 table tfoot {
     background-color: #fff;
+}
+@media(min-width:640px){
+    table {
+        float: left;
+        width: 65%;
+    }
+    table td {
+        padding: 10px;
+    }
+    table td.first_name,
+    table td.last_name {
+        width: 40px;
+    }
+    table td.email {
+        width: 220px;
+        word-break: break-all;
+    }
 }
 .text-uppercase {
     text-transform: uppercase;
@@ -176,6 +145,11 @@ table tfoot {
     width: 100%;
     padding-right: 20px;
 }
+@media(min-width:640px){
+    #nameGroup {
+        width: 400px;
+    }
+}
 #controlPanel {
     margin-bottom: 20px;
 }
@@ -197,13 +171,6 @@ table tfoot {
     float: left;
     margin: 5px;
 }
-#tableWrapper table {
-    margin: 0 auto;
-}
-#tableWrapper table td.email {
-    width: 99%;
-    word-break: break-all;
-}
 
 .profile-img {
     max-width: 100%;
@@ -211,85 +178,76 @@ table tfoot {
     margin: 0 auto;
     border-radius: 20px;
 }
-.button-container {
-    float: right;
+.button-container{
+    overflow:hidden;
 }
+.button-container button{
+    padding:8px 15px;
+}
+.button-container button:first-child, .button-container button:nth-child(2){
+    float:left;
+}
+.button-container button:nth-child(3), .button-container button:nth-child(4){
+    float:right;
+}
+.button-container .page-number-display{
+    padding-top:10px;
+    text-align:center;
+}
+
+/* Detail Panel */
+
 #detailPanel {
-    padding: 20px 10px;
-    height:175px;
+    padding: 20px;
+    min-height:175px;
     background-color: #fefefe;
     border: 1px solid #ddd;
-    margin-top: 10px;
     width: 100%;
+}
+#detailPanel h3{
+    top:25%;
+    padding-left:20px;
+    padding-right:20px;
 }
 #detailPanel .profile-img {
     float: left;
-    margin-top:10px;
     max-width: 25%;
 }
 #detailPanel .person-detail-content {
     float: left;
     text-align: left;
-    max-width: 70%;
+    max-width: 75%;
+}
+#detailPanel .person-detail-content a{
+    padding:0;
 }
 #detailPanel .person-detail-content p, #detailPanel .person-detail-content h2{
-    margin-top:2px;
+    margin-top:0;
+    max-height:175px;
+    overflow-wrap:break-word;
     padding-left:20px;
+    padding-right:20px;
     margin-bottom:5px;
 }
 #detailPanel > .faux-header{
+    height:37px;
     margin-top:-1px;
-    height:32px;
+    border:1px solid #555;
+    border-right:none;
     background: #333 linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
     display:none;
 }
-@media(min-width:640px) {
-    button {
-        margin: 4px;
-    }
-    #tableWrapper {
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    }
-    .row {
-        margin: 0 auto;
-        max-width: 900px;
-    }
-    table tbody tr {
-        border-left: none;
-    }
-    table tfoot tr td {
-        border-left: none;
-    }
-    table td {
-        padding: 10px;
-    }
-    table td.first_name,
-    table td.last_name {
-        width: 40px;
-    }
-    #tableWrapper table td.email {
-        width: 220px;
-        word-break: break-all;
-    }
-    #tableWrapper table {
-        float: left;
-        width: 65%;
-    }
+@media(min-width:640px){
     #detailPanel {
         border-right: none;
-        margin-top: 0;
         padding:0;
         height: 500px;
         width: 35%;
-        /*background-color:#efefef;*/
-
-        position: relative;
         float: left;
     }
     #detailPanel .person-detail-content {
         float: none;
         padding-top: 30px;
-        text-align:center;
         max-width: 100%;
     }
     #detailPanel .person-detail-content > *{
@@ -303,8 +261,16 @@ table tfoot {
     #detailPanel > .faux-header {
         display:block;
     }
-    #nameGroup {
-        width: 400px;
-        padding-right: 20px;
-    }
+}
+
+
+/* Utility Classes */
+.group:after,.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.row {
+    margin: 0 auto;
+    max-width: 920px;
 }

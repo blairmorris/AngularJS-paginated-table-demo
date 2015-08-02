@@ -27,19 +27,13 @@
 <div class="row" id="tableWrapper">
     <div class="group text-center" id="detailPanel">
         <div class="faux-header"></div>
-        <div ng-if="!currentPerson">
-            <h3>Select a user from the table to display details.</h3>
-        </div>
-        <div ng-if="currentPerson">
-            <img src="http://lorempixel.com/200/200/people?t={{currentPerson.phone}}" class="profile-img">
-            <div class="person-detail-content" style="overflow-wrap:break-word;">
-                <h2>{{currentPerson.first_name}} {{currentPerson.last_name}}</h2>
-                <p>{{currentPerson.email}}</p>
-                <p>Ph: {{currentPerson.phone}}</p>
-                <br>
-                <a href="https://maps.google.com?q={{currentPerson.address}}, {{currentPerson.city}}, {{currentPerson.state}}, {{currentPerson.zip}}"><p>{{currentPerson.address}}, {{currentPerson.city}}, {{currentPerson.state}} {{currentPerson.zip}}</p></a>
-                <p>Joined: {{currentPerson.join_date}}</p>
-            </div>
+        <img src="http://lorempixel.com/190/230/people?t={{currentPerson.phone}}" class="profile-img">
+        <div class="person-detail-content">
+            <h2>{{currentPerson.first_name}} {{currentPerson.last_name}}</h2>
+            <p>{{currentPerson.email}}</p>
+            <p>Ph: {{currentPerson.phone}}</p>
+            <a href="https://maps.google.com?q={{currentPerson.address}}, {{currentPerson.city}}, {{currentPerson.state}}, {{currentPerson.zip}}"><p>{{currentPerson.address}}, {{currentPerson.city}}, {{currentPerson.state}} {{currentPerson.zip}}</p></a>
+            <p>Joined: {{currentPerson.join_date}}</p>
         </div>
     </div>
     <table>
@@ -63,13 +57,15 @@
             <tr>
                 <td colspan="{{keys.length}}">
                     <div class="button-container">
-                        <button type="button" ng-click="setCurrentPage(1)" ng-disabled="currentPage === 1">First</button>
-                        <button ng-repeat="i in getAry(pages) track by $index" type="button" ng-class="{'active': $index === currentPage - 1}" ng-click="setCurrentPage($index+1)">{{$index+1}}</button>
-                        <button type="button" ng-click="setCurrentPage(pages)" ng-disabled="currentPage === pages">Last</button>
+                        <button type="button" ng-click="setCurrentPage(1)" ng-disabled="currentPage === 1"><<</button>
+                        <button type="button" ng-click="currentPage = currentPage - 1" ng-disabled="!(currentPage - 1)"><</button>
+                        <!--<button ng-if="pages <= 5" ng-repeat="i in getAry(pages) track by $index" type="button" ng-class="{'active': $index === currentPage - 1}" ng-click="setCurrentPage($index+1)">{{$index+1}}</button>-->
+                        <button type="button" ng-click="setCurrentPage(pages)" ng-disabled="currentPage === pages">>></button>
+                        <button type="button" ng-click="currentPage = currentPage + 1" ng-disabled="currentPage+1 > pages">></button>
+                        <div class="page-number-display">Page: {{currentPage}}</div>
                     </div>
                 </td>
             </tr>
         </tfoot>
     </table>
-
 </div>

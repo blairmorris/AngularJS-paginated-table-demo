@@ -10,6 +10,7 @@ angular.module('uaAssessmentVanilla')
                 $scope.totalItems = data.length;
                 $scope.totalContacts = $scope.sampleData.length;
                 $scope.pages = Math.ceil(data.length / ($scope.rowLimit || 10));
+                $scope.currentPerson = data[0];
             });
 
         //Load an array of short:long state names for a more user-friendly list of state names.
@@ -35,17 +36,9 @@ angular.module('uaAssessmentVanilla')
 
         // Set current page, with safety of checking to make sure that page exists.
         $scope.setCurrentPage = function(value){
-            if(value <= $scope.pages){
+            if((0 < value) && (value <= $scope.pages)){
                 $scope.currentPage = value;
             }
-        };
-
-        //Utility function. Ng-repeat can't take just an integer.
-        $scope.getAry = function(num){
-            if(num){
-                return new Array(num);
-            }
-            return [];
         };
 
         //Toggle sorting
@@ -54,14 +47,6 @@ angular.module('uaAssessmentVanilla')
                 key: key,
                 descending: !$scope.sortBy.descending
             };
-        };
-
-        //Reset filters to initial values.
-        $scope.clearFilters = function(){
-            $scope.rowLimit = 10;
-            $scope.byState = '';
-            $scope.sortBy.key = '';
-            $scope.sortBy.descending = false;
         };
 
         /*
