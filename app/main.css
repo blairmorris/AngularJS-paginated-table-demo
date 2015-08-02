@@ -1,0 +1,310 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+ p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing:border-box;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*  ------------------------------------------
+        End css reset
+    ------------------------------------------
+*/
+
+body {
+    padding: 15px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    background-image: url(assets/img/cream_pixels.png);
+}
+h1 {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 800;
+}
+label {
+    font-weight: bold;
+}
+button {
+    font-family: 'Oswald', sans-serif;
+    margin: 4px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 5px;
+    /* 'Corner-radius' was listed in the requirements, I assumed a typo and assumed you meant border-radius. */
+
+    border: none;
+    cursor: pointer;
+    background-color: rgba(68, 68, 68, 1);
+    transition: all 0.2s ease 0s;
+}
+.row:after,
+.group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+label {
+    color: #333;
+}
+button:focus {
+    outline: none;
+}
+button:hover,
+button:active {
+    background-color: rgba(23, 23, 23, 1);
+}
+button:active {
+    color: rgba(255, 255, 255, 0.6);
+}
+button.active {
+    background-color: #d55;
+}
+button:disabled {
+    opacity: 0.3;
+}
+table,
+th,
+td {
+    border: 1px solid #efefef;
+    border-collapse: collapse;
+}
+table {
+    height: 500px;
+}
+table th {
+    padding: 9px;
+    font-weight: 900;
+    background: #333 linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+    color: white;
+    border-color: #555;
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+table tbody tr {
+    background-color: #fff;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.02));
+}
+table tbody tr:hover {
+    background-image: linear-gradient(rgba(255, 200, 200, 0.3), rgba(255, 200, 200, 0.2));
+    cursor: pointer;
+}
+table tbody tr td {
+    vertical-align:middle;
+    font-weight: 300;
+}
+table td {
+    padding: 6px;
+}
+table tbody tr.active {
+    background-image: linear-gradient(rgba(255, 200, 200, 0.5), rgba(255, 200, 200, 0.3));
+}
+table tfoot {
+    background-color: #fff;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+.text-center {
+    text-align: center;
+}
+.select-style {
+    border: 1px solid #ccc;
+    width: 130px;
+    border-radius: 3px;
+    margin-right: 10px;
+    background: #fafafa url("data:image/png;base64,R0lGODlhDwAUAIABAAAAAP///yH5BAEAAAEALAAAAAAPABQAAAIXjI+py+0Po5wH2HsXzmw//lHiSJZmUAAAOw==") no-repeat 90% 50%;
+}
+.select-style select {
+    padding: 5px 8px;
+    border: none;
+    width:100%;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+.select-style select:focus {
+    outline: none;
+}
+#nameGroup {
+    width: 100%;
+    padding-right: 20px;
+}
+#controlPanel {
+    margin-bottom: 20px;
+}
+#controlPanel input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px 3px;
+}
+#controlPanel .control-group {
+    display: inline-block;
+    padding-top:10px;
+    overflow: hidden;
+}
+.pagination {
+    float: right;
+}
+.pagination button {
+    float: left;
+    margin: 5px;
+}
+#tableWrapper table {
+    margin: 0 auto;
+}
+#tableWrapper table td.email {
+    width: 99%;
+    word-break: break-all;
+}
+
+.profile-img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+.button-container {
+    float: right;
+}
+#detailPanel {
+    padding: 20px 10px;
+    height:175px;
+    background-color: #fefefe;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    width: 100%;
+}
+#detailPanel .profile-img {
+    float: left;
+    margin-top:10px;
+    max-width: 25%;
+}
+#detailPanel .person-detail-content {
+    float: left;
+    text-align: left;
+    max-width: 70%;
+}
+#detailPanel .person-detail-content p, #detailPanel .person-detail-content h2{
+    margin-top:2px;
+    padding-left:20px;
+    margin-bottom:5px;
+}
+#detailPanel > .faux-header{
+    margin-top:-1px;
+    height:32px;
+    background: #333 linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+    display:none;
+}
+@media(min-width:640px) {
+    button {
+        margin: 4px;
+    }
+    #tableWrapper {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+    .row {
+        margin: 0 auto;
+        max-width: 900px;
+    }
+    table tbody tr {
+        border-left: none;
+    }
+    table tfoot tr td {
+        border-left: none;
+    }
+    table td {
+        padding: 10px;
+    }
+    table td.first_name,
+    table td.last_name {
+        width: 40px;
+    }
+    #tableWrapper table td.email {
+        width: 220px;
+        word-break: break-all;
+    }
+    #tableWrapper table {
+        float: left;
+        width: 65%;
+    }
+    #detailPanel {
+        border-right: none;
+        margin-top: 0;
+        padding:0;
+        height: 500px;
+        width: 35%;
+        /*background-color:#efefef;*/
+
+        position: relative;
+        float: left;
+    }
+    #detailPanel .person-detail-content {
+        float: none;
+        padding-top: 30px;
+        text-align:center;
+        max-width: 100%;
+    }
+    #detailPanel .person-detail-content > *{
+        padding-left:5px;
+    }
+    #detailPanel img.profile-img {
+        float: none;
+        margin-top:20px;
+        max-width: 100%;
+    }
+    #detailPanel > .faux-header {
+        display:block;
+    }
+    #nameGroup {
+        width: 400px;
+        padding-right: 20px;
+    }
+}

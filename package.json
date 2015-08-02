@@ -1,0 +1,20 @@
+{
+  "name": "ua_assessment",
+  "version": "1.0.0",
+  "description": "Interview Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://bitbucket.com/something.git"
+  },
+  "author": "Edward Blair Morris",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "express": "^4.13.2"
+  }
+}
