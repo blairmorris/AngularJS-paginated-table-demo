@@ -3,8 +3,13 @@
 var express = require('express');
 var app = express();
 
-app.use(express.static('app'));
+var port = process.env.PORT || 8080;
+app.use(express.static(__dirname + '/app'));
 
-app.listen(9004, '0.0.0.0', function(){
-    console.log('Express server listening on 9004');
+app.get('/', function(req,res){
+    res.render('index');
+});
+
+app.listen(port, function(){
+    console.log('Express server listening on http://localhost:' + port);
 });
